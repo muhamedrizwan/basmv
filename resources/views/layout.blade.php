@@ -11,10 +11,19 @@
             font-family: 'dv';
             src: url('{{URL::to("/")}}/dv.ttf');
         }
-        .dv{
+        .dv1{
+            font-family: 'dv';
+            font-size: 30px;
+        }
+        .dv3{
+            font-family: 'dv';
+            font-size: 25px;
+        }
+        .dv2{
             font-family: 'dv';
             font-size: 20px;
         }
+
     </style>
     <title class="dv">Bas</title>
     <link rel="icon" type="image/png" href="{{URL::to('/')}}/images/Logo.png" />
@@ -24,10 +33,20 @@
     <link rel="stylesheet" type="text/css" href="{{url('css/styles.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url('icons/font/flaticon.css')}}">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.11.3/b-2.0.1/b-html5-2.0.1/datatables.min.css"/>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css">
+    <link rel="stylesheet" href="assets/css/Lightbox-Gallery.css">
+    <link rel="stylesheet" href="assets/css/Pretty-Search-Form.css">
+    <link rel="stylesheet" href="assets/css/Projects-Horizontal.css">
+    <link rel="stylesheet" href="assets/css/Sidebar-Menu.css">
+    <link rel="stylesheet" href="assets/css/Sidebar-Menu1.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/Team-Boxed.css">
 
 </head>
 
-<body>
+<body style="background-image:url(&quot;assets/img/v904-nunny-012 1.png&quot;);background-repeat:no-repeat;background-size:cover;">
     @include('navbar')
     @yield('content')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
