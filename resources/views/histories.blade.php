@@ -15,11 +15,11 @@
                     <h2 class="text-right dv dv1">ދިވެހި ތާރީޚު</h2>
                 </div>
             </div>
-            <div class="container" style="width:100%;">
+            <div id="list" class="container" style="width:100%;">
                 <div class="row photos">
                     @foreach ($data as $data)
-                    <div class="col-sm-6 col-md-4 col-lg-3 item" style="margin-top:5px;margin-bottom:5px;">
-                        <a href="{{URL::to('/')}}/historiesDetails" style="color: black"><div class="card"><img class="card-img-top w-100 d-block" src="{{URL::to('/')}}/assets/img/history/{{$data->image}}">
+                    <div data-id="{{$data->id}}" data-name="{{$data->name}}" data-description="{{$data->description}}" data-image="{{$data->image}}" data-caption="{{$data->caption}}" data-date="{{$data->date}}" class="col-sm-6 col-md-4 col-lg-3 item" style="margin-top:5px;margin-bottom:5px;">
+                        <a style="color: black"><div class="card"><img class="card-img-top w-100 d-block" src="{{URL::to('/')}}/assets/img/history/{{$data->image}}">
                             <div class="card-body">
                                 <h5 class="text-right card-title dv dv2">{{$data->caption}}</h5>
                             </div>
@@ -29,8 +29,54 @@
                     @endforeach
                 </div>
             </div>
+            <div id="details" style="display:none;">
+            <div class="row" style="margin-top:15px;">
+                <div class="col-xl-8 offset-xl-0 float-right">
+                    <div class="card"><img class="card-img w-100 d-block" id="img"src="assets/img/desk.jpg"></div>
+                </div>
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <h3 class="float-right" id="name"></h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <p class="float-right" id="description"></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <p class="float-right" id="date"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
         </div>
     </div>
 </section>
 
 @endsection
+
+
+@push('scripts')
+
+<script>
+
+    $("#list").on("click",".item", function(){
+        var id = $(this).data('id')
+        var title = $(this).data('item')
+        $("#name").html(name)
+        $("#img").attr("src","{{URL::to('/')}}/assets/img/history/{{$data->image}}")
+        $("#description").html(description)
+        $("#date").html(date)
+        $("#details").style.display="";
+        $("#list").style.display="none";
+
+    })
+
+</script>
+
+
+@endpush
