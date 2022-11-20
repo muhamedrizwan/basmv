@@ -19,7 +19,7 @@
                     <div class="input-group-prepend"></div><input class="form-control" type="text" style="border-radius:20px 0px 00px 20px;background-color:rgba(255,255,255,0);border:1px solid grey;">
                     <div class="input-group-append"><button class="btn btn-primary" type="button" id="searchBtn" style="border-radius:0px 20px 20px 0px;background-color:rgba(0,123,255,0);border:1px solid grey;"><i class="fa fa-search" style="color:rgb(128,128,128);"></i></button></div>
                 </div>
-                <h4>Login | Register&nbsp;&nbsp;<i class="fa fa-user-circle-o"></i></h4>
+                {{-- <h4>Login | Register&nbsp;&nbsp;<i class="fa fa-user-circle-o"></i></h4> --}}
                 <div class="container" style="width:100%;">
                     <div class="row" style="width:100%;margin-top:30px;">
                         <div class="col-xl-8"><img class="rounded" src="assets/img/stephanie-leblanc-uRqAjW1l8TY-unsplash 1.png" style="width:100%;padding:0;"></div>
