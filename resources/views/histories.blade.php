@@ -17,41 +17,47 @@
             </div>
             <div id="list" class="container" style="width:100%;">
                 <div class="row photos">
-                    @foreach ($data as $data)
-                    <div data-id="{{$data->id}}" data-name="{{$data->name}}" data-description="{{$data->description}}" data-image="{{$data->image}}" data-caption="{{$data->caption}}" data-date="{{$data->date}}" class="col-sm-6 col-md-4 col-lg-3 item" style="margin-top:5px;margin-bottom:5px;">
-                        <a style="color: black"><div class="card"><img class="card-img-top w-100 d-block" src="{{URL::to('/')}}/assets/img/history/{{$data->image}}">
-                            <div class="card-body">
-                                <h5 class="text-right card-title dv dv2">{{$data->caption}}</h5>
+                    @foreach ($data as $item)
+                        <div data-id="{{$item->id}}" data-name="{{$item->name}}" data-description="{{$item->description}}" data-image="{{$item->image}}" data-caption="{{$item->caption}}" data-date="{{$item->date}}" class="col-sm-6 col-md-4 col-lg-3 item" style="margin-top:5px;margin-bottom:5px;">
+                            <a style="color: black"><div class="card"><img class="card-img-top w-100 d-block" src="{{URL::to('/')}}/assets/img/history/{{$item->image}}">
+                                <div class="card-body">
+                                    <h5 class="text-right card-title dv dv2">{{$item->caption}}</h5>
+                                </div>
                             </div>
+                            </a>
                         </div>
-                        </a>
-                    </div>
                     @endforeach
                 </div>
             </div>
             <div id="details" style="display:none;">
-            <div class="row" style="margin-top:15px;">
-                <div class="col-xl-8 offset-xl-0 float-right">
-                    <div class="card"><img class="card-img w-100 d-block" id="img"src="assets/img/desk.jpg"></div>
+                <div class="row" style="margin-top:15px;">
+                    <div class="col-xl-8 offset-xl-0 float-right">
+                        <div class="card contentCard"><img class="card-img w-100 d-block" style="max-width:500px" id="img"src=""></div>
+                    </div>
+                    <div class="col">
+                        <div class="row">
+                            <div class="col">
+                                <button id="close" class="btn btn-primary float-right btnRound dv dv2" type="button">ފަހަތަށް</button>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <h3 class="float-right dv dv1" id="name"></h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <p class="float-right dv dv2" id="description"></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <p class="float-right dv dv2" id="date"></p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col">
-                    <div class="row">
-                        <div class="col">
-                            <h3 class="float-right" id="name"></h3>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <p class="float-right" id="description"></p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <p class="float-right" id="date"></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
             </div>
         </div>
     </div>
@@ -59,7 +65,7 @@
 
 @endsection
 
-
+{{-- /*// $("#img").attr("src","{{URL::to('/')}}/assets/img/history/{{$data->image}}")*/ --}}
 @push('scripts')
 
 <script>
@@ -67,13 +73,25 @@
     $("#list").on("click",".item", function(){
         var id = $(this).data('id')
         var title = $(this).data('item')
+        var name = $(this).data('name')
+        var description = $(this).data('description')
+        var image = $(this).data('image')
+        var caption = $(this).data('caption')
+        var date = $(this).data('date')
+
         $("#name").html(name)
-        $("#img").attr("src","{{URL::to('/')}}/assets/img/history/{{$data->image}}")
         $("#description").html(description)
         $("#date").html(date)
-        $("#details").style.display="";
-        $("#list").style.display="none";
+        $("#img").attr("src","{{URL::to('/')}}/assets/img/history/"+image)
+        $("#list").hide();
+        $("#details").show();
 
+    })
+
+    // $(documemt).on("click", "#close", function(){
+    $("#close").click(function(){
+        $("#list").show();
+        $("#details").hide();
     })
 
 </script>

@@ -19,15 +19,35 @@
                 {{-- <div class="row">
                     <div class="col-xl-12 offset-xl-0"><button class="btn btn-primary float-right btnRound" type="button">Button</button><button class="btn btn-primary float-right btnRound" type="button">Button</button></div>
                 </div> --}}
-                <div class="row">
-                    @foreach ($data as $data)
-                    <div class="col-xl-4 offset-xl-0">
-                        <div class="card" style="background-color:rgba(255,255,255,0.5);border-color:white;border-radius:20px;max-height:40vh;min-height:40vh;">
+                <div id="list" class="row ">
+                    @foreach ($data as $item)
+                    <div class="col-xl-4 offset-xl-0 ">
+                        <div data-id="{{$item->id}}" data-name="{{$item->name}}"  data-thumbnail="{{$item->thumbnail}}" data-image="{{$item->image}}" class="card item" style="background-color:rgba(255,255,255,0.5);border-color:white;border-radius:20px;max-height:40vh;min-height:40vh;">
                             <div class="card-body">
-                                <h4 class="text-center dv dv1">{{$data->name}}</h4><img src="{{URL::to('/')}}/assets/img/dhivehinan/{{$data->thumbnail}}"></div>
+                                <h4 class="text-center dv dv1">{{$item->name}}</h4><img src="{{URL::to('/')}}/assets/img/dhivehinan/{{$item->thumbnail}}"></div>
                         </div>
                     </div>
                     @endforeach
+                </div>
+
+                <div id="details" style="display:none;">
+                    <div class="row" style="margin-top:15px;">
+                        <div class="col-xl-10 offset-xl-0 float-right">
+                            <div class="card"><img class="card-img w-100 d-block" style="max-width:500px" id="img"src=""></div>
+                        </div>
+                        <div class="col ">
+                            <div class="row">
+                                <div class="col">
+                                    <button id="close" class="btn btn-primary float-right btnRound dv dv2" type="button">ފަހަތަށް</button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <h3 class="float-right dv dv1" id="name"></h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -35,3 +55,29 @@
 </section>
 
 @endsection
+
+@push('scripts')
+
+<script>
+
+    $("#list").on("click",".item", function(){
+        var id = $(this).data('id')
+        var name = $(this).data('name')
+        var image = $(this).data('image')
+        $("#name").html(name)
+        $("#img").attr("src","{{URL::to('/')}}/assets/img/dhivehinan/"+image)
+        $("#list").hide();
+        $("#details").show();
+
+    })
+
+    // $(documemt).on("click", "#close", function(){
+    $("#close").click(function(){
+        $("#list").show();
+        $("#details").hide();
+    })
+
+</script>
+
+
+@endpush
