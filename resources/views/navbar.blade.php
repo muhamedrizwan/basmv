@@ -40,7 +40,7 @@
 </div> --}}
 
 <section>
-    <div id="wrapper" class="sidenav2" ><a href="{{URL::to('/')}}/"><img class="float-right" src="assets/img/ބަސް.އެމްވީ.png"></a>
+    <div id="wrapper" class="sidenav2" ><a href="{{URL::to('/')}}/"><img class="float-right" src="{{URL::to('/')}}/assets/img/basmv.png"></a>
         <div class="float-right" style="width:200px; text-align:right">
             <ul class="list-unstyled float-right dv dv2" style="margin-top:50px;">
                 <li class="dv dv1 nav-item{{request()->is('*/') ? ' active' : ''}}"><a class="nav-link dv navClass" href="{{URL::to('/')}}/">ފުރަތަމަ ސަފުޚާ</a></li>
@@ -60,7 +60,7 @@
                         <a class="dropdown-item dv dv1 navClass" href="{{URL::to('/')}}/admin/idioms">އަދަބީ ބަސް</a>
                         <a class="dropdown-item dv dv1 navClass" href="{{URL::to('/')}}/admin/dhivehiNames">ދިވެހި ނަން</a>
                         <a class="dropdown-item dv dv1 navClass" href="{{URL::to('/')}}/admin/dhivehiDates">ދިވެހި ތާރީޙު</a>
-                        <a class="dropdown-item dv dv1 navClass" href="{{URL::to('/')}}/admin/users">ޔޫސާ</a>
+                        {{-- <a class="dropdown-item dv dv1 navClass" href="{{URL::to('/')}}/admin/users">ޔޫސާ</a> --}}
                     </div>
                 </li>
                 @endif

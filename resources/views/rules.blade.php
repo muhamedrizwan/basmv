@@ -3,7 +3,7 @@
 @section('content')
 
 <section>
-    <div class="card float-right bodyPanel" style="width:75%;/*margin:20px 20px 20px 20px;*//*margin-right:22%;*//*background-color:rgba(255,255,255,0.5);*/">
+    <div class="card float-right bodyPanel" style="width:75%;/*margin:20px 20px 20px 20px;*//*margin-right:22%;*//*background-color:rgba(255,255,255,0.5);*/ ">
         <div class="card-body">
             <div class="input-group float-right searchbar" style="width:350px;">
                 <div class="input-group-prepend"></div><input class="form-control" type="text" style="border-radius:20px 0px 00px 20px;background-color:rgba(255,255,255,0);border:1px solid grey;">
@@ -16,16 +16,18 @@
                     <h2 class="text-right dv dv1">ގަވާއިދުތައް</h2>
                 </div>
             </div>
-            @foreach ($data as $item)
-            <div id="list" class="card float-right contentCard " style="background-color:rgba(255,255,255,0.48);">
-                <div  data-id="{{$item->id}}" data-name="{{$item->name}}" data-writer="{{$item->writer}}" data-date="{{$item->written_date}}"data-description="{{$item->description}}" class="card-body item" >
-                    <p class="text-right dv dv2">{{$item->name}}</p>
-                    <p class="text-right dv dv2">{{$item->citation}}</p>
-                    <p class="card-text">{{$item->writer}} | {{$item->written_date}}</p>
+            <div>
+                @foreach ($data as $item)
+                <div id="list" class="card float-right contentCard list" style="background-color:rgba(255,255,255,0.48);width: 100%">
+                    <div  data-id="{{$item->id}}" data-name="{{$item->name}}" data-writer="{{$item->writer}}" data-date="{{$item->written_date}}"data-description="{{$item->description}}" class="card-body item" >
+                        <p class="text-right dv dv2">{{$item->name}}</p>
+                        <p class="text-right dv dv2">{{$item->citation}}</p>
+                        <p class="card-text">{{$item->writer}} | {{$item->written_date}}</p>
+                    </div>
                 </div>
+                @endforeach
             </div>
-            @endforeach
-    
+            
             <div id="details" style="display:none;">
                 <button id="close" class="btn btn-primary float-right btnRound dv dv2" type="button">ފަހަތަށް</button>
                     <div id="list" class="card contentCard float-right " style="background-color:rgba(255,255,255,0.48);width:100%">
@@ -48,7 +50,7 @@
 
 <script>
 
-    $("#list").on("click",".item", function(){
+    $(".list").on("click",".item", function(){
         var id = $(this).data('id')
         var name = $(this).data('name')
         var description = $(this).data('description')
@@ -60,14 +62,14 @@
         $("#writer").html(writer)
         $("#date").html(written_date)
 
-        $("#list").hide();
+        $(".list").hide();
         $("#details").show();
 
     })
 
     // $(documemt).on("click", "#close", function(){
     $("#close").click(function(){
-        $("#list").show();
+        $(".list").show();
         $("#details").hide();
     })
 

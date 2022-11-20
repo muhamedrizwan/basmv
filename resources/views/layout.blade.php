@@ -33,20 +33,20 @@
     <link rel="stylesheet" type="text/css" href="{{url('css/styles.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url('icons/font/flaticon.css')}}">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.11.3/b-2.0.1/b-html5-2.0.1/datatables.min.css"/>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="{{URL::to('/')}}/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{URL::to('/')}}/assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css">
-    <link rel="stylesheet" href="assets/css/Lightbox-Gallery.css">
-    <link rel="stylesheet" href="assets/css/Pretty-Search-Form.css">
-    <link rel="stylesheet" href="assets/css/Projects-Horizontal.css">
-    <link rel="stylesheet" href="assets/css/Sidebar-Menu.css">
-    <link rel="stylesheet" href="assets/css/Sidebar-Menu1.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="assets/css/Team-Boxed.css">
+    <link rel="stylesheet" href="{{URL::to('/')}}/assets/css/Lightbox-Gallery.css">
+    <link rel="stylesheet" href="{{URL::to('/')}}/assets/css/Pretty-Search-Form.css">
+    <link rel="stylesheet" href="{{URL::to('/')}}/assets/css/Projects-Horizontal.css">
+    <link rel="stylesheet" href="{{URL::to('/')}}/assets/css/Sidebar-Menu.css">
+    <link rel="stylesheet" href="{{URL::to('/')}}/assets/css/Sidebar-Menu1.css">
+    <link rel="stylesheet" href="{{URL::to('/')}}/assets/css/styles.css">
+    <link rel="stylesheet" href="{{URL::to('/')}}/assets/css/Team-Boxed.css">
 
 </head>
 
-<body style="background-image:url(&quot;assets/img/v904-nunny-012 1.png&quot;);background-repeat:no-repeat;background-size:cover;">
+<body style="background-image:url({{URL::to('/')}}/assets/img/bg.png);background-repeat:no-repeat;background-size:cover;">
     @include('navbar')
     @yield('content')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

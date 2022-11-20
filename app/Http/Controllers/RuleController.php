@@ -23,15 +23,15 @@ class RuleController extends Controller
         $validated = request()->validate([
             'Name'          => 'required|string',
             'Description'   => 'required|string',
-            'Writer'        => 'required|string',
-            'WrittenDate'   => 'required|date_format:Y-m-d',
+            // 'Writer'        => 'required|string',
+            // 'WrittenDate'   => 'required|date_format:Y-m-d',
             'Citation'      => 'required|string',
         ]);
         $status = Rule::create([
             'name'          => $validated['Name'],
             'description'   => $validated['Description'],
-            'writer'        => $validated['Writer'],
-            'written_date'  => $validated['WrittenDate'],
+            'writer'        => auth()->id(),
+            'written_date'  => date('Y-m-d H:i:s'),
             'citation'      => $validated['Citation'],
         ]);
         if($status){
@@ -46,8 +46,8 @@ class RuleController extends Controller
             'id'            => 'required|integer',
             'Name'          => 'required|string',
             'Description'   => 'required|string',
-            'Writer'        => 'required|string',
-            'WrittenDate'   => 'required|date_format:Y-m-d',
+            // 'Writer'        => 'required|string',
+            // 'WrittenDate'   => 'required|date_format:Y-m-d',
             'Citation'      => 'required|string',
         ]);
         $data = Rule::find($validated['id']);
@@ -57,8 +57,6 @@ class RuleController extends Controller
         $status = $data->update([
             'name'          => $validated['Name'],
             'description'   => $validated['Description'],
-            'writer'        => $validated['Writer'],
-            'written_date'  => $validated['WrittenDate'],
             'citation'      => $validated['Citation'],
         ]);
         if($status){

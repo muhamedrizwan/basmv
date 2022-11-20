@@ -17,7 +17,8 @@
             </div>
             <div >
                 @foreach ($data as $item)
-                <div id="list" class="card float-right contentCard" style="background-color:rgba(255,255,255,0.48); width:100%">
+                <a href="{{URL::to('/')}}/discussionDetail/{{$item->id}}">
+                <div id="list" class="card float-right contentCard" style="background-color:rgba(255,255,255,0.48); width:100%; color:black">
                     <div class="card-body item" >
                         <div class="row">
                             <div class="col-xl-10">
@@ -29,48 +30,11 @@
                     </div>
                 </div>
                 @endforeach
-            </div>
-
-            <div id="details" style="display:none;">
-                <div class="card float-right contentCard" style="background-color:rgba(255,255,255,0.48);">
-                    <p class="text-right float-right"id="title"></p>
-                    <div class="card-body align-self-end" style="background-color:#ffffff;width:50%;margin:15px;margin-left:15px;">
-                        <div class="row">
-                            <div class="col-xl-11">
-                                <p class="text-right" id="comment"></p>
-                            </div>
-                            <div class="col-xl-1"><img class="rounded-circle img-fluid float-right" src="assets/img/2.jpg" style="width:50px;"></div>
-                        </div>
-                    </div>
-                </div>
+                </a>
             </div>
         </div>
     </div>
 </section>
 
 @endsection
-@push('scripts')
 
-<script>
-
-    $("#list").on("click",".item", function(){
-        // var id = $(this).data('id')
-        // var name = $(this).data('name')
-        // var image = $(this).data('image')
-        // $("#name").html(name)
-        // $("#img").attr("src","{{URL::to('/')}}/assets/img/dhivehinan/"+image)
-        $("#list").hide();
-        $("#details").show();
-
-    })
-
-    // $(documemt).on("click", "#close", function(){
-    $("#close").click(function(){
-        $("#list").show();
-        $("#details").hide();
-    })
-
-</script>
-
-
-@endpush

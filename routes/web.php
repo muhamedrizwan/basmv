@@ -45,7 +45,7 @@ Route::get('/discussion/create', [DiscussionController::class, 'create']);
 Route::get('/discussion/delete', [DiscussionController::class, 'delete']);
 
 // Create or Delete Discussion Comments
-Route::get('/discussion/comment', [CommentController::class, 'comment']);
+Route::get('/discussion/create', [CommentController::class, 'create']);
 Route::get('/discussion/deleteComment', [CommentController::class, 'delete']);
 
 // Routes for Rule Controller
