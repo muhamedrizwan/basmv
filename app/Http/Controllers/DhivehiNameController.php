@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\DhivehiName;
+use App\Classes\Helpers;
 
 class DhivehiNameController extends Controller
 {
@@ -25,8 +26,8 @@ class DhivehiNameController extends Controller
             'Thumbnail'     => 'required|Image',
             'Image'         => 'required|Image',
         ]);
-        $thumbPath = Helpers::uploadImage($validated['Thumbnail'], "images/");
-        $imagePath = Helpers::uploadImage($validated['Image'], "images/");
+        $thumbPath = Helpers::uploadImage($validated['Thumbnail'], "assets/img/dhivehinan");
+        $imagePath = Helpers::uploadImage($validated['Image'], "assets/img/dhivehinan");
         $status = DhivehiName::create([
             'name'          => $validated['Name'],
             'thumbnail'     => $thumbPath,

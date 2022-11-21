@@ -15,6 +15,7 @@
                     <h2 class="text-right dv dv1">މަޝްވަރާ ޖަގަހަ</h2>
                 </div>
             </div>
+
             <div >
                 @foreach ($data as $item)
                 <a href="{{URL::to('/')}}/discussionDetail/{{$item->id}}">
@@ -32,9 +33,56 @@
                 @endforeach
                 </a>
             </div>
+            {{-- <div class="row" style="padding-top:300px;">
+                <div class="col-xl-6"></div>
+                <div class="col-xl-6">
+                    <form id="newDataForm">
+                        <div class="form-group"><input class="form-control dv dv2" type="text" name="Title" placeholder="ސުވާލު"required="" dir="rtl"></div>
+                        <div class="form-group float-right"><button class="btn btn-primary btnRound" type="submit">Post</button></div>
+                    </form>
+                </div>
+            </div> --}}
+                
         </div>
     </div>
 </section>
 
 @endsection
+
+
+@push('scripts')
+<script>
+
+    var page = 'discussion';
+// add new function
+    $("#newDataForm").submit(function(e){
+        e.preventDefault();
+        var form = $('#newDataForm')[0];
+        var data = new FormData(form);
+        data.append('_token', $("meta[name='csrf-token']").attr('content')); //csrf token appending from layout blade
+        $.ajax({
+            type: "POST",
+            url: "{{URL::to('/')}}/admin/"+page+"/create",
+            data: data,
+            processData: false,
+            contentType: false,
+            cache: false,
+            success: function (data) {
+                if (data.Status == 'error') {
+                    swal(data.Message, "", "error")
+                } else if (data.validator) {
+                    $.each(data.validator, function (i, val) {
+                        swal(val, "", "error");
+                    });
+                } else {
+                    swal("Row Created!", "", "success").then((value) => {
+                    window.location.reload();
+                    });
+                }
+            },
+        });
+    });
+</script>
+@endpush
+
 

@@ -19,7 +19,7 @@
                 <div class="row photos">
                     @foreach ($data as $item)
                         <div data-id="{{$item->id}}" data-name="{{$item->name}}" data-description="{{$item->description}}" data-image="{{$item->image}}" data-caption="{{$item->caption}}" data-date="{{$item->date}}" class="col-sm-6 col-md-4 col-lg-3 item" style="margin-top:5px;margin-bottom:5px;">
-                            <a style="color: black"><div class="card"><img class="card-img-top w-100 d-block" src="{{URL::to('/')}}/assets/img/history/{{$item->image}}">
+                            <a style="color: black"><div class="card"><img class="card-img-top w-100 d-block" src="{{URL::to('/')}}/{{$item->image}}">
                                 <div class="card-body">
                                     <h5 class="text-right card-title dv dv2">{{$item->caption}}</h5>
                                 </div>
@@ -31,16 +31,13 @@
             </div>
             <div id="details" style="display:none;">
                 <div class="row" style="margin-top:15px;">
+                    <div class="col">
+                        <button id="close" class="btn btn-primary btnRound dv dv2" style="background-color: grey" type="button">ފަހަތަށް</button>
+                    </div>
                     <div class="col-xl-8 offset-xl-0 float-right">
                         <div class="card contentCard"><img class="card-img w-100 d-block" style="max-width:500px" id="img"src=""></div>
                     </div>
                     <div class="col">
-                        <div class="row">
-                            <div class="col">
-                                <button id="close" class="btn btn-primary float-right btnRound dv dv2" type="button">ފަހަތަށް</button>
-                            </div>
-                        </div>
-
                         <div class="row">
                             <div class="col">
                                 <h3 class="float-right dv dv1" id="name"></h3>
@@ -82,7 +79,7 @@
         $("#name").html(name)
         $("#description").html(description)
         $("#date").html(date)
-        $("#img").attr("src","{{URL::to('/')}}/assets/img/history/"+image)
+        $("#img").attr("src","{{URL::to('/')}}/"+image)
         $("#list").hide();
         $("#details").show();
 

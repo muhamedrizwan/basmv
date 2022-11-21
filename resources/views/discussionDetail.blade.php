@@ -16,6 +16,11 @@
                 </div>
             </div>
             <div>
+                <div class="row">
+                    <div class="col">
+                        <a href="{{URL::to('/')}}/discussion"><button id="close" class="btn btn-primary btnRound dv dv2" style="background-color: grey" type="button">ފަހަތަށް</button></a>
+                    </div>
+                </div>
                 <div class="card float-right contentCard" style="background-color:rgba(255,255,255,0.48);padding: 20px;width:100%">
                     <h1 class="text-right float-right dv dv1">{{$data->title}}</h1>
                     @foreach($data->comments as $comment)

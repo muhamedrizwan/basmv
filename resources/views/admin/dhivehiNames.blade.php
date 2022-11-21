@@ -19,11 +19,11 @@
                     <div class="form-group"><input class="form-control dv dv2" type="text" name="Name" placeholder="ނަން"required="" dir="rtl"></div>
                     <div class="mb-3 ">
                         <div class="float-right dv dv2" ><label for="formFile" class="form-label ">ކުޑަ ފޮޓޯ</label></div>
-                        <input class="form-control" type="file" id="formFile">
+                        <input class="form-control" type="file" name="Thumbnail" id="formFile">
                       </div>
                       <div class="mb-3 ">
                         <div class="float-right dv dv2"><label for="formFile" class="form-label">ފޮޓޯ</label></div>
-                        <input class="form-control" type="file" id="formFile">
+                        <input class="form-control" type="file" name="Image" id="formFile">
                       </div>
                     <div class="form-group float-right"><button class="btn btn-primary btnRound" type="submit">Post</button></div>
                 </form>
@@ -33,3 +33,38 @@
 </section>
 
 @endsection
+
+@push('scripts')
+<script>
+
+    var page = 'dhivehiNames';
+// add new function
+    $("#newDataForm").submit(function(e){
+        e.preventDefault();
+        var form = $('#newDataForm')[0];
+        var data = new FormData(form);
+        data.append('_token', $("meta[name='csrf-token']").attr('content')); //csrf token appending from layout blade
+        $.ajax({
+            type: "POST",
+            url: "{{URL::to('/')}}/admin/"+page+"/create",
+            data: data,
+            processData: false,
+            contentType: false,
+            cache: false,
+            success: function (data) {
+                if (data.Status == 'error') {
+                    swal(data.Message, "", "error")
+                } else if (data.validator) {
+                    $.each(data.validator, function (i, val) {
+                        swal(val, "", "error");
+                    });
+                } else {
+                    swal("Row Created!", "", "success").then((value) => {
+                    window.location.reload();
+                    });
+                }
+            },
+        });
+    });
+</script>
+@endpush

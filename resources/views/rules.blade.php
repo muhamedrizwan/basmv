@@ -29,7 +29,7 @@
             </div>
             
             <div id="details" style="display:none;">
-                <button id="close" class="btn btn-primary float-right btnRound dv dv2" type="button">ފަހަތަށް</button>
+                <button id="close" class="btn btn-primary  btnRound dv dv2" style="background-color: grey" type="button">ފަހަތަށް</button>
                     <div id="list" class="card contentCard float-right " style="background-color:rgba(255,255,255,0.48);width:100%">
                         <div class="card-body item" >
                             <p class="text-right dv dv3" id="name">{{$item->name}}</p>
