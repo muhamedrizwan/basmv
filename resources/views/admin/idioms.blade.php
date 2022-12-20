@@ -57,6 +57,13 @@
                     });
                 }
             },
+            error:function(response){
+                if(response.status == 422){
+                    Object.keys(response.responseJSON.errors).forEach(function(key){
+                        swal(response.responseJSON.errors[key][0], "", "error")
+                    })
+                }
+            }
         });
     });
 </script>

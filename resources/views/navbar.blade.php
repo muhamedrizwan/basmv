@@ -60,7 +60,7 @@
                         <a class="dropdown-item dv dv1 navClass" href="{{URL::to('/')}}/admin/idioms">އަދަބީ ބަސް</a>
                         <a class="dropdown-item dv dv1 navClass" href="{{URL::to('/')}}/admin/dhivehiNames">ދިވެހި ނަން</a>
                         <a class="dropdown-item dv dv1 navClass" href="{{URL::to('/')}}/admin/dhivehiDates">ދިވެހި ތާރީޙު</a>
-                        {{-- <a class="dropdown-item dv dv1 navClass" href="{{URL::to('/')}}/admin/users">ޔޫސާ</a> --}}
+                        <a class="dropdown-item dv dv1 navClass" href="{{URL::to('/')}}/admin/users">ޔޫސާ</a>
                     </div>
                 </li>
                 @endif
